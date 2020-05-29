@@ -1,0 +1,60 @@
+{
+  "name": "postfix-evaluator",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "env TZ='UTC' mocha --require babel-core/register --require babel-polyfill $(find . -name '*.spec.js' ! -ipath '*node_modules*') --recursive",
+    "coverage": "nyc --check-coverage --all --lines=80 --reporter=text --reporter=text-summary --functions=80 --branches=80 npm test",
+    "lint": "eslint \"src/**/*.js\" \"test/**/*.js\"",
+    "clean": "rm -Rf dist",
+    "test:watch": "nodemon --exec \"npm run test\""
+  },
+  "author": "Maheel De Silva",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "bluebird": "^3.5.3",
+    "fast-csv": "^2.4.1",
+    "mathjs": "^5.8.0",
+    "source-map-support": "^0.5.1",
+    "yargs": "^13.2.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-source-map-support": "^2.0.1",
+    "babel-plugin-transform-async-to-module-method": "^6.24.1",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-fuzzy": "^1.6.1",
+    "chai-spies": "^1.0.0",
+    "dirty-chai": "^2.0.1",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4",
+    "nyc": "^13.1.0",
+    "sinon": "^7.0.0"
+  },
+  "nyc": {
+    "include": [
+      "src/"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }
+}
